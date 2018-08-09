@@ -1,2 +1,5 @@
 # ucsb-cs56-gauchogains
-Help UCSB Students Find Rec Cen Training Partners
+
+* Rec Cen training partner
+* An app used to find a workout partner
+* Help UCSB Students Find Rec Cen Training Partners
