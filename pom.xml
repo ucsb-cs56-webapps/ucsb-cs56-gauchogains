@@ -1,0 +1,146 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- model version - always 4.0.0 for Maven 2.x POMs -->
+  <modelVersion>4.0.0</modelVersion>
+  
+
+    <!-- project coordinates - values which uniquely identify this project -->
+
+  <groupId>edu.ucsb.cs56.pconrad</groupId>
+  <artifactId>sparkjava-demo-01</artifactId>
+  <version>1.0</version>
+  <url>https://ucsb-cs56-pconrad.github.io/sparkjava-01</url>
+  
+  <!-- configure what mvn package produces -->
+  
+  <packaging>jar</packaging>
+  <name>sparkjava-demo-01</name>
+  
+  <!-- what version of Java should we use and what encoding for files? -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <!-- what other software does our project depend on (third-party JARs, etc.) -->
+  <dependencies>
+
+    <!-- JUnit unit testing (https://junit.org/) -->    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Spark Java Web framework (http://sparkjava.com/) -->
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-core</artifactId>
+      <version>2.5</version>
+    </dependency>
+    
+  </dependencies>
+
+  <!-- For use with github pages, to publish the site to the /docs subdirectory -->
+  <distributionManagement>
+    <site>
+      <id>website</id>
+      <url>file://${project.basedir}/docs/</url>
+    </site>
+  </distributionManagement>
+
+  <reporting>
+
+    <plugins>
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-project-info-reports-plugin</artifactId>
+	<version>2.9</version>
+	<!-- SEE: https://stackoverflow.com/questions/28098566/maven-site-warning-the-repository-url-https-maven-repository-dev-java-net-no -->
+	<configuration>
+          <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+        </configuration>
+      </plugin>
+  
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.0.1</version>
+      </plugin>
+    </plugins>
+    
+  </reporting>
+
+  <build>
+    <plugins>
+
+      <!-- Make executable jar WITH dependencies -->
+      <!-- See: https://www.baeldung.com/executable-jar-with-maven -->
+      
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-assembly-plugin</artifactId>
+	<executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <archive>
+                <manifest>
+		    <mainClass>edu.ucsb.cs56.pconrad.SparkDemo01</mainClass>
+                </manifest>
+              </archive>
+              <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+              </descriptorRefs>
+            </configuration>
+          </execution>
+	</executions>
+      </plugin>
+
+      <plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>exec-maven-plugin</artifactId>
+	<version>1.6.0</version>
+	<executions>
+	  <execution>
+	    <id>my-execution</id>
+	    <goals>
+	      <goal>java</goal>
+	    </goals>
+	  </execution>
+	</executions>
+	<configuration>
+	  <mainClass>edu.ucsb.cs56.pconrad.SparkDemo01</mainClass> 
+	</configuration>
+      </plugin>
+
+      <plugin>
+	<groupId>com.heroku.sdk</groupId>
+	<artifactId>heroku-maven-plugin</artifactId>
+	<version>0.4.4</version>
+	<configuration>
+          <jdkVersion>1.8</jdkVersion>
+          <!-- Use your own application name -->
+          <appName>cs56-m18-lab03-phill</appName> 
+          <processTypes>
+            <!-- Tell Heroku how to launch your application -->
+            <!-- You might have to remove the ./ in front   -->
+            <web>java -jar ./target/sparkjava-demo-1.0-jar-with-dependencies.jar</web>
+          </processTypes>
+	</configuration>
+      </plugin>
+
+      
+    </plugins>
+  </build>
+  
+</project>
+
+
