@@ -24,3 +24,6 @@ hs_err_pid*
 
 # Mac Stuff
 .DS_Store
+
+
+target/
