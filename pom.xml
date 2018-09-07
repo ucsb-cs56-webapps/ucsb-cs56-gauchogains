@@ -8,7 +8,7 @@
 
     <!-- project coordinates - values which uniquely identify this project -->
 
-  <groupId>edu.ucsb.cs56.pconrad</groupId>
+  <groupId>edu.ucsb.cs56.gaucho_gains</groupId>
   <artifactId>Project</artifactId>
   <version>1.0</version>
   <url>https://ucsb-cs56-pconrad.github.io/sparkjava-mustache-example</url>
