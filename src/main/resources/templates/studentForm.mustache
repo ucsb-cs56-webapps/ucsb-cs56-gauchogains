@@ -2,8 +2,7 @@
 <html>
 {{> head }}
 <body>
- {{> nav }}
- <center> <legend>Sign Up</legend>
+	<center> <legend> <h2> <font face = "helvetica">SIGN UP</font> </h2></legend>
 
 <form action="/add/student" method="post">
   First name:<br>
@@ -22,11 +21,12 @@
   <input type="password" name="pass" 
 		minlength = "8" required
 		placeholder = "8 characters minimum">
-  <br>
-  <br>
+  <br><br>
+  <button type="button" class="cancelbtn"><a href="http://gauchogains.herokuapp.com"> <font color = "black"> Cancel </a></button>
   <input type="submit" value="Sign Up">
+   
 </form> 
-
+ 
  {{> bootstrap-from-cdn-body }}
 </body>
 </html>
