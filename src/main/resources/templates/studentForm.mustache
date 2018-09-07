@@ -3,7 +3,7 @@
 {{> head }}
 <body>
  {{> nav }}
- <h1>Student Form</h1>
+ <center> <legend>Sign Up</legend>
 
 <form action="/add/student" method="post">
   First name:<br>
@@ -11,15 +11,21 @@
   <br>
   Last name:<br>
   <input type="text" name="lastname" value="">
-  <br><br>
+  <br>
   Phone #:<br>
-  <input type="text" name="perm" value="(   )   -    ">
-  <br><br>
-  <input type="submit" value="Submit">
+  <input type="tel" name="phone" value="">
+  <br>
+  Email:<br>
+  <input type="text" name="email" value = "">
+  <br>
+  Password:<br>
+  <input type="password" name="pass" 
+		minlength = "8" required
+		placeholder = "8 characters minimum">
+  <br>
+  <br>
+  <input type="submit" value="Sign Up">
 </form> 
-
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/add/student".</p>
-
 
  {{> bootstrap-from-cdn-body }}
 </body>
