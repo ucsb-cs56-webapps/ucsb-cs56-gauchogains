@@ -8,6 +8,7 @@
 
     <!-- project coordinates - values which uniquely identify this project -->
 
+
   <groupId>edu.ucsb.cs56.gaucho_gains</groupId>
   <artifactId>Project</artifactId>
   <version>1.0</version>
@@ -16,8 +17,8 @@
   <!-- configure what mvn package produces -->
   
   <packaging>jar</packaging>
+
   <name>Project</name>
-  
   <!-- what version of Java should we use and what encoding for files? -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -152,13 +153,13 @@
 	<configuration>
           <jdkVersion>1.8</jdkVersion>
           <!-- Use your own application name -->
+
 	  <!-- at Heroku CLI, use heroku apps to list, or use Heroku Dashboard -->
           <appName>gauchogains</appName>
           <processTypes>
             <!-- Tell Heroku how to launch your application -->
             <!-- You might have to remove the ./ in front   -->
             <web>java $JAVA_OPTS -jar target/Project-1.0-jar-with-dependencies.jar</web>
-
           </processTypes>
 	</configuration>
       </plugin>
@@ -170,5 +171,3 @@
   </build>
   
 </project>
-
-
