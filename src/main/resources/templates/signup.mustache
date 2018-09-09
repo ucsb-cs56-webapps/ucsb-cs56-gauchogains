@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html>
-{{> head }}
-<body>
-	<center> <legend> <h2> <font face = "Helvetica Neue">Sign Up</font> </h2></legend>
+  {{> head }}
+  <body>
+    <center>
+    <legend><h2><font face="Helvetica Neue">Sign Up</font></h2></legend>
+      <form action="/community" method="post">
+        First name:<br>
+	<input type="text" name="fname" value="" required>
 
-<form action="/add/user" method="post">
-  First name:<br>
-  <input type="text" name="firstname" value="">
-  <br>
-  Last name:<br>
-  <input type="text" name="lastname" value="">
-  <br>
-  Phone #:<br>
-  <input type="tel" name="phone" value="">
-  <br>
-  Email:<br>
-  <input type="text" name="email" value = "">
-  <br>
-  Password:<br>
-  <input type="password" name="pass" 
-		minlength = "8" required
-		placeholder = "8 characters minimum">
-  <br><br>
-  <button type="button" class="cancelbtn"><a href="http://gauchogains.herokuapp.com"> <font color = "black"> Cancel </a></button>
-  <input type="submit" value="Sign Up">
-   
-</form> 
- 
- {{> bootstrap-from-cdn-body }}
-</body>
+	<br>Last name:<br>
+	<input type="text" name="lname" value="" required>
+
+	<br>Phone #:<br>
+	<input type="tel" name="phone" value="" required>
+
+	<br>Email:<br>
+	<input type="text" name="email" value="" required>
+
+	<br>Password:<br>
+	<input type="password" name="pass" minlength="8" required placeholder="8 characters minimum">
+
+	<br>Confirm Password:<br>
+	<input type="password" name="pass" minlength="8" required placeholder="8 characters minimum">
+
+	<br><br>
+	<button type="button" class="cancelbtn"><a href="/"><font color = "black">Cancel</font></a></button>
+	<input type="submit" value="Sign Up">
+      </form>
+    </center>
+    {{> bootstrap-from-cdn-body }}
+  </body>
 </html>

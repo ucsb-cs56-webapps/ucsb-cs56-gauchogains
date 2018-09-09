@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.pconrad;
+package edu.ucsb.cs56.gaucho_gains;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -10,8 +10,7 @@ import org.junit.After;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class SparkDemo01Test {
-
+public class ProjectTest {
 
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
@@ -34,5 +33,5 @@ public class SparkDemo01Test {
 	public void test_out() {
 		assertTrue(true);
 	}
-	
+
 }
