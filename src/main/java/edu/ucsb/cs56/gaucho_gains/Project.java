@@ -28,16 +28,15 @@ public class Project {
 	public static void main(String[] args) {
 
         port(getHerokuAssignedPort());
-		
-		Map map = new HashMap();
-        map.put("name", "Sam");
+
+	Map map = new HashMap();	
 		
         // hello.mustache file is in resources/templates directory
         	get("/", (rq, rs) -> new ModelAndView(map, "login.mustache"), new MustacheTemplateEngine());
 
-		get("/form/student", (rq, rs) -> new ModelAndView(map, "studentForm.mustache"), new MustacheTemplateEngine());
+		get("/signup", (rq, rs) -> new ModelAndView(map, "signup.mustache"), new MustacheTemplateEngine());
 
-		post("/add/user", (rq, rs) -> new ModelAndView(map, "addedStudent.mustache"), new MustacheTemplateEngine());
+		post("/profile", (rq, rs) -> new ModelAndView(map, "profile.mustache"), new MustacheTemplateEngine());
 		
 	}
 	

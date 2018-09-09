@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+                <title>GauchoGains</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </head>
+        <style>
+                .navbar {
+                         margin-bottom: 0;
+                         background-color: #2d2d30;
+                         border: 0;
+                         font-size: 11px !important;
+                         letter-spacing: 4px;
+                         opacity:0.9;
+                }
+                .navbar li a, .navbar .navbar-brand {
+                        color: #d5d5d5;
+                }
+                .navbar-nav li a:hover {
+                        color: #fff !important;
+                }
+                .container{
+                        padding: 80px 120px;
+                }
+
+        </style>
+<body>
+{{> nav }}
+
+<center> <legend> <h2> <font face = "Helvetica Neue">Sign Up</font> </h2></legend>
+
+<form action="/profile" method="post">
+  First name:<br>
+  <input type="text" name="firstname" value="">
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname" value="">
+  <br>
+  Phone #:<br>
+  <input type="tel" name="phone" value="">
+  <br>
+  Email:<br>
+  <input type="text" name="email" value = "">
+  <br>
+  Password:<br>
+  <input type="password" name="pass" 
+		minlength = "8" required
+		placeholder = "8 characters minimum">
+  <br><br>
+  <button onclick= "location.href='/'" type="button">
+     Cancel</button>
+  <input type="submit" value="Sign Up">
+   
+</form> 
+ 
+ {{> bootstrap-from-cdn-body }}
+</body>
+</html>

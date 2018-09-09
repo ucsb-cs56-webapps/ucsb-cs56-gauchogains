@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html>
-{{> head }}
+	<head>
+		<title>GauchoGains</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<style>
+		.navbar {
+ 			 margin-bottom: 0;
+ 			 background-color: #2d2d30;
+			 border: 0;
+			 font-size: 11px !important;
+			 letter-spacing: 4px;
+			 opacity:0.9;
+		}
+		.navbar li a, .navbar .navbar-brand {
+			color: #d5d5d5;
+		}
+		.navbar-nav li a:hover {
+			color: #fff !important;
+		}
+		.container{
+			padding: 80px 120px;
+		}
+		
+	</style>
 <body>
- {{> nav }}
- <h1><center>Login</center></h1>
- <center>
-<form action="/" method="post">
-  Email Login<br>
-  <input type="text" placeholder="Enter email" name="userlogin" required>
-  <br>
-  Password<br>
-  <input type="password" placeholder="Enter password" name="psw" required>
-  <br><br>
-  <input  type="submit" value="Login">
-</form>
- </center>
-
- {{> bootstrap-from-cdn-body }}
+	{{>nav}}
+	<div class="container text-center">
+	<h1>GauchoGains</h1>
+		<form action="/" method="post">
+			Email:<br>
+			<input type="text" placeholder="Enter email" name="userlogin" required>
+			<br>
+			Password:<br>
+			<input type="password" placeholder="Enter password" name="psw" required>
+			<br><br>
+			<input  type="submit" value="Login">
+		</form>
+	</div>
+	{{> bootstrap-from-cdn-body }}	
 </body>
 </html>
