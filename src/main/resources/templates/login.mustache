@@ -1,47 +1,72 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>GauchoGains</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</head>
-	<style>
+    <head>
+	<title>GauchoGains</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+    body,html{
+	    height:100%;
+    }
+    		.bg{
+    			background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+    			background-repeat:no-repeat;
+			height: 100%;
+			
+    		}
+		.container{
+		    min-height:100%;
+		    padding: 100px 150px;
+		}
 		.navbar {
- 			 margin-bottom: 0;
- 			 background-color: #2d2d30;
-			 border: 0;
-			 font-size: 11px !important;
-			 letter-spacing: 4px;
-			 opacity:0.9;
+		    color: #FFFFFF !important;
+		    margin-bottom: 0;
+		    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+		    border: 0;
+		    font-size: 11px !important;
+		    letter-spacing: 4px;
+		    opacity:0.9;
 		}
 		.navbar li a, .navbar .navbar-brand {
-			color: #d5d5d5;
+		    color: #fff;
 		}
-		.navbar-nav li a:hover {
-			color: #fff !important;
+		.navbar-nav li a:hover, .navbar-nav li.active a {
+		    color: transparent; !important;
+		    background-color: #fff !important;
 		}
-		.container{
-			padding: 80px 120px;
+		.top-nav-collapse {
+		    background-color: #fff !important;
 		}
-		
-	</style>
-<body>
+		.md-form .prefix {
+		    font-size: 1.5rem;
+		    margin-top: 1rem;
+		}
+		.md-form label {
+		    color: #ffffff;
+		}
+
+    </style>
+    <body>
 	{{>nav}}
-	<div class="container text-center">
-	<h1>GauchoGains</h1>
-		<form action="/" method="post">
-			Email:<br>
-			<input type="text" placeholder="Enter email" name="userlogin" required>
+	<div class="bg">
+	    <div class="container">
+		<form class = "text-center border border-light p-5" action="/" method="post">
+			<h1 style="color:white">GauchoGains</h1>
+			    <i class="fa fa-envelope" style="color:white"></i>
+			    	<input type="email"class= "form-control mb-4" size= "30" placeholder= "Your email" name="userlogin" required>
 			<br>
-			Password:<br>
-			<input type="password" placeholder="Enter password" name="psw" required>
-			<br><br>
-			<input  type="submit" value="Login">
+			    <i class="fa fa-lock" style="color:white"></i>
+			    	<input type="password" class = "form-control mb-4" size="30" placeholder="Your password" name="psw" required>
+			<br>
+			    <button class="btn btn-primary">Login</button>
+			    <hr class="hr-light mb-3 mt-4">
 		</form>
+	    </div> 
 	</div>
 	{{> bootstrap-from-cdn-body }}	
-</body>
+    </body>
 </html>

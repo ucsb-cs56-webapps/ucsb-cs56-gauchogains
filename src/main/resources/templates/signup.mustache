@@ -1,62 +1,78 @@
 <!DOCTYPE html>
 <html>
-<head>
-                <title>GauchoGains</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        </head>
-        <style>
-                .navbar {
-                         margin-bottom: 0;
-                         background-color: #2d2d30;
-                         border: 0;
-                         font-size: 11px !important;
-                         letter-spacing: 4px;
-                         opacity:0.9;
-                }
-                .navbar li a, .navbar .navbar-brand {
-                        color: #d5d5d5;
-                }
-                .navbar-nav li a:hover {
-                        color: #fff !important;
-                }
-                .container{
-                        padding: 80px 120px;
-                }
+    <head>
+	<title>GauchoGains</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+		body,html{
+			height:100%;
+		}
+		.bg{    
+    			background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+    			background-repeat:no-repeat;
+    			height: 100%;
+			background-size:cover;
+		}			
+		.container{
+		    min-height:100%;
+		    padding: 100px 150px;
+		}
+		.navbar {
+		    margin-bottom: 0;
+		    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+		    border: 0;
+		    font-size: 11px !important;
+		    letter-spacing: 4px;
+		    opacity:0.9;
+		}
+		.navbar li a, .navbar .navbar-brand {
+		    color: #fff;
+		}
+		.navbar-nav li a:hover, .navbar-nav li.active a {
+		    color: transparent; !important;
+		    background-color: #fff !important;
+		}
+		.top-nav-collapse {
+		    background-color: #fff !important;
+		}
+		.md-form .prefix {
+		    font-size: 1.5rem;
+		    margin-top: 1rem;
+		}
+		.md-form label {
+		    color: #ffffff;
+		}
 
-        </style>
-<body>
-{{> nav }}
+    </style>
+    <body>
+	{{> nav }}
+	<div class="bg">
+	    <div class="container">
+		<form class = "text-center border border-light p-5" action="/profile" method="post">
+		    <h1 style="color:white">Sign Up</h1>
+		    <i class="fa fa-user" style="color:white"></i>
+		    <input type="text"class= "form-control mb-4" size= "30" placeholder= "Name" name="username" required>
+		    <br>
+		    <i class="fa fa-envelope" style="color:white"></i>
+		    <input type="email"class= "form-control mb-4" size= "30" placeholder= "Email" name="userlogin" required>
+		    <br>
+		    <i class="fa fa-lock" style="color:white"></i>
+		    <input type="password" class = "form-control mb-4" size="30" placeholder="Password" name="psw" required>
+		    <br><br>
+		    <input type="password" class = "form-control mb-4" size="30" placeholder="Confirm password" name="psw" required>
+		    <br>
+		    <button type= "button" class="btn btn-primary" onclick="location.href='http://gauchogains.herokuapp.com'">Cancel</button>
+		    <button class="btn btn-primary">Sign Up</button>
+		    <hr class="hr-light mb-3 mt-4">
+		</form>
+	    </div>
+	</div>
 
-<center> <legend> <h2> <font face = "Helvetica Neue">Sign Up</font> </h2></legend>
-
-<form action="/profile" method="post">
-  First name:<br>
-  <input type="text" name="firstname" value="">
-  <br>
-  Last name:<br>
-  <input type="text" name="lastname" value="">
-  <br>
-  Phone #:<br>
-  <input type="tel" name="phone" value="">
-  <br>
-  Email:<br>
-  <input type="text" name="email" value = "">
-  <br>
-  Password:<br>
-  <input type="password" name="pass" 
-		minlength = "8" required
-		placeholder = "8 characters minimum">
-  <br><br>
-  <button onclick= "location.href='/'" type="button">
-     Cancel</button>
-  <input type="submit" value="Sign Up">
-   
-</form> 
- 
- {{> bootstrap-from-cdn-body }}
-</body>
+	{{> bootstrap-from-cdn-body }}
+    </body>
 </html>
