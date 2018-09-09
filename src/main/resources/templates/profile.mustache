@@ -1,9 +1,52 @@
 <!DOCTYPE html>
 <html>
 {{> head }}
+<style>
+body,html{
+            height:100%;
+    }
+                .bg{
+                        background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+                        background-repeat:no-repeat;
+                        height: 100%;
+
+                }
+                .btn-outline-light{
+                        color:white;
+                        background-color:transparent;
+                        border-color:#fff;
+                }
+                .btn-outline-light:hover{
+                        color:#2b5876;
+                        background-color:#fff;
+                }
+                .container{
+                    min-height:100%;
+                    padding: 100px 150px;
+                }
+                .navbar {
+                    color: #FFFFFF !important;
+                    margin-bottom: 0;
+                    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+                    border: 0;
+                    font-size: 11px !important;
+                    letter-spacing: 4px;
+                    opacity:0.9;
+                }
+                .navbar li a, .navbar .navbar-brand {
+                    color: #fff;
+                }
+                .navbar-nav li a:hover, .navbar-nav li.active a {
+                    color: transparent; !important;
+                    background-color: #fff !important;
+                }
+                .top-nav-collapse {
+                    background-color: #fff !important;
+                }
+</style>
 <body>
  {{> nav }}
- <h1>Hello {{name}}</h1>
+ <h1>WELCOME</h1>
  {{> bootstrap-from-cdn-body }}
 </body>
 </html>

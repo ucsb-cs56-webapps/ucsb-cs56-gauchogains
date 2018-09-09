@@ -11,13 +11,22 @@
     <style>
     body,html{
 	    height:100%;
-    }
+    }	
     		.bg{
     			background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
     			background-repeat:no-repeat;
 			height: 100%;
 			
     		}
+		.btn-outline-light{
+			color:white;
+                        background-color:transparent;
+                        border-color:#fff;
+                }
+                .btn-outline-light:hover{
+			color:#2b5876;
+                        background-color:#fff;
+                }
 		.container{
 		    min-height:100%;
 		    padding: 100px 150px;
@@ -57,12 +66,14 @@
 		<form class = "text-center border border-light p-5" action="/" method="post">
 			<h1 style="color:white">GauchoGains</h1>
 			    <i class="fa fa-envelope" style="color:white"></i>
-			    	<input type="email"class= "form-control mb-4" size= "30" placeholder= "Your email" name="userlogin" required>
-			<br>
+			    <div class = "col-auto">	
+			    <input type="email"class= "form-control mb-4" size= "30" placeholder= "Your email" name="userlogin" required>
+			    </div>	
+			    <br>
 			    <i class="fa fa-lock" style="color:white"></i>
 			    	<input type="password" class = "form-control mb-4" size="30" placeholder="Your password" name="psw" required>
 			<br>
-			    <button class="btn btn-primary">Login</button>
+			    <button class="btn btn-outline-light btn-lg">Login</button>
 			    <hr class="hr-light mb-3 mt-4">
 		</form>
 	    </div> 
