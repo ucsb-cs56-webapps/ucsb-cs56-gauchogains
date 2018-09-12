@@ -1,7 +1,8 @@
-package edu.ucsb.cs56.gaucho_gains;
+package edu.ucsb.cs56.gauchogains;
 
 import static spark.Spark.port;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.util.HashMap;
@@ -18,15 +19,40 @@ public class Project {
     public static final Logger log = Logger.getLogger(CLASSNAME);
     
     public static void main(String[] args) {
+	log.setLevel(Level.INFO);
+
+	log.trace("Trace Message!");
+	log.debug("Debug Message!");
+	log.info("Info Message!");
+	log.warn("Warn Message!");
+	log.error("Error Message!");
+	log.fatal("Fatal Message!");
+	
         port(getHerokuAssignedPort());
 
-	/* will figure out later */
-	Map map = new HashMap();
-	map.put("fname", "lname");
-	
-	get("/", (rq, rs) -> new ModelAndView(map, "login.mustache"), new MustacheTemplateEngine());
-	get("/signup", (rq, rs) -> new ModelAndView(map, "signup.mustache"), new MustacheTemplateEngine());
-	post("/community", (rq, rs) -> new ModelAndView(map, "community.mustache"), new MustacheTemplateEngine());
+	/* Dummy Database */
+	Map<String, Object> model = new HashMap<String, Object>();
+
+	/* Login Page */
+	get("/", (rq, rs) -> {
+		log.info("get /");
+		return new ModelAndView(model, "login.mustache");
+	    }, new MustacheTemplateEngine());
+
+	/* Sign-Up Page */
+	get("/signup", (rq, rs) -> new ModelAndView(model, "signup.mustache"), new MustacheTemplateEngine());
+
+	/* Next Page After Login */
+	post("/community", (rq, rs) -> {
+		log.info("post /community");
+		String user = rq.queryParams("email");
+		String pass = rq.queryParams("pass");
+		UserManager um = new UserManager();
+		model.put("validUser", um.checkUser(user,pass));
+		model.put("User",user);
+		
+		return new ModelAndView(model, "community.mustache");
+	    }, new MustacheTemplateEngine());
     }
 
     static int getHerokuAssignedPort() {
