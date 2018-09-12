@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html>
-  {{> head }}
-  <body>
-    <center>
-    <legend><h2><font face="Helvetica Neue">Sign Up</font></h2></legend>
-      <form action="/community" method="post">
-        First name:<br>
-	<input type="text" name="fname" value="" required>
-
-	<br>Last name:<br>
-	<input type="text" name="lname" value="" required>
-
-	<br>Phone #:<br>
-	<input type="tel" name="phone" value="" required>
-
-	<br>Email:<br>
-	<input type="text" name="email" value="" required>
-
-	<br>Password:<br>
-	<input type="password" name="pass" minlength="8" required placeholder="8 characters minimum">
-
-	<br>Confirm Password:<br>
-	<input type="password" name="pass" minlength="8" required placeholder="8 characters minimum">
-
-	<br><br>
-	<button type="button" class="cancelbtn"><a href="/"><font color = "black">Cancel</font></a></button>
-	<input type="submit" value="Sign Up">
-      </form>
-    </center>
-    {{> bootstrap-from-cdn-body }}
-  </body>
+{{> head }}
+{{> style}}	
+    <body>
+	{{> nav }}
+	<div class="bg">
+	    <div class="container">
+		<form class = "text-center border border-light p-5" action="/profile" method="post">
+		    <h1 style="color:white">Sign Up</h1>
+		    <i class="fa fa-user" style="color:white"></i>
+		    <input type="text" class="form-control mb-4" size="30" placeholder="First Name" name="fname" required>
+		    <br><br>
+		    <input type="text" class="form-control mb-4" size="30" placeholder="Last Name" name="lname" required>
+		    <br>
+		    <i class="fa fa-phone" style="color:white"></i>
+		    <input type="tel"class= "form-control mb-4" size="30" placeholder="Phone #" name="lname" required>
+		    <br>
+		    <i class="fa fa-envelope" style="color:white"></i>
+		    <input type="email"class= "form-control mb-4" size="30" placeholder="Email" name="email" required>
+		    <br>
+		    <i class="fa fa-lock" style="color:white"></i>
+		    <input type="password" class = "form-control mb-4" size="30" placeholder="Password" name="pass" required>
+		    <br><br>
+		    <input type="password" class = "form-control mb-4" size="30" placeholder="Confirm password" name="pass" required>
+		    <br>
+		    <button type= "button" class="btn btn-outline-light" onclick="location.href='/'">Cancel</button>
+		    <button class="btn btn-outline-light">Sign Up</button>
+		    <hr class="hr-light mb-3 mt-4">
+		</form>
+	    </div>
+	</div>
+	{{> bootstrap-from-cdn-body }}
+    </body>
 </html>

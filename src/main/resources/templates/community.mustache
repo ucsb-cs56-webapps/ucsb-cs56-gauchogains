@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   {{> head }}
+  {{> style }}
   <body>
   {{> usernav }}
-
-  <h1>Fellow Fitness Enthusiasts</h1>
-
+  <div class="bg">
+    <h1 style="color:white">Fellow Fitness Enthusiasts</h1>
+  </div>
   {{#validUser}}
     <p>hello {{user}}</p>
   {{/validUser}}

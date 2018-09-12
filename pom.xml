@@ -4,18 +4,14 @@
 
   <!-- model version - always 4.0.0 for Maven 2.x POMs -->
   <modelVersion>4.0.0</modelVersion>
-  
 
-    <!-- project coordinates - values which uniquely identify this project -->
-
-
+  <!-- project coordinates - values which uniquely identify this project -->
   <groupId>edu.ucsb.cs56.gaucho_gains</groupId>
   <artifactId>Project</artifactId>
   <version>1.0</version>
   <url>https://ucsb-cs56-pconrad.github.io/sparkjava-mustache-example</url>
   
   <!-- configure what mvn package produces -->
-  
   <packaging>jar</packaging>
 
   <name>Project</name>
@@ -27,20 +23,15 @@
     <userDefinedMainClass>edu.ucsb.cs56.gaucho_gains.Project</userDefinedMainClass>
     <userDefinedHerokuApp>gauchogains</userDefinedHerokuApp>
   </properties>
-
   <!-- what other software does our project depend on (third-party JARs, etc.) -->
-  <dependencies>
-
-    
+  <dependencies>    
     <!-- https://mvnrepository.com/artifact/com.sparkjava/spark-template-mustache -->
     <dependency>
       <groupId>com.sparkjava</groupId>
       <artifactId>spark-template-mustache</artifactId>
       <version>2.7.1</version>
     </dependency>
-
     <!-- log4j -->
-    
     <dependency>
        <groupId>org.slf4j</groupId>
        <artifactId>slf4j-api</artifactId>
@@ -51,8 +42,6 @@
        <artifactId>slf4j-log4j12</artifactId>
        <version>1.7.5</version>
   </dependency>
-
-  
     <!-- JUnit unit testing (https://junit.org/) -->    
     <dependency>
       <groupId>junit</groupId>
@@ -60,16 +49,31 @@
       <version>4.8.2</version>
       <scope>test</scope>
     </dependency>
-
     <!-- Spark Java Web framework (http://sparkjava.com/) -->
     <dependency>
       <groupId>com.sparkjava</groupId>
       <artifactId>spark-core</artifactId>
       <version>2.5</version>
     </dependency>
-    
+      <!-- Jackson for json Parsing (needed to run Lombok) -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.9.6</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.9.6</version>
+    </dependency>
+    <!-- Project Lombok (creates getter & setter functions) -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.2</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
-
   <!-- For use with github pages, to publish the site to the /docs subdirectory -->
   <distributionManagement>
     <site>
@@ -77,9 +81,7 @@
       <url>file://${project.basedir}/docs/</url>
     </site>
   </distributionManagement>
-
   <reporting>
-
     <plugins>
       <plugin>
 	<groupId>org.apache.maven.plugins</groupId>
@@ -90,22 +92,17 @@
           <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
         </configuration>
       </plugin>
-  
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.0.1</version>
       </plugin>
     </plugins>
-    
   </reporting>
-
   <build>
     <plugins>
-
       <!-- Make executable jar WITH dependencies -->
       <!-- See: https://www.baeldung.com/executable-jar-with-maven -->
-      
       <plugin>
 	<groupId>org.apache.maven.plugins</groupId>
 	<artifactId>maven-assembly-plugin</artifactId>
@@ -128,7 +125,6 @@
           </execution>
 	</executions>
       </plugin>
-
       <plugin>
 	<groupId>org.codehaus.mojo</groupId>
 	<artifactId>exec-maven-plugin</artifactId>
@@ -145,7 +141,6 @@
 	  <mainClass>edu.ucsb.cs56.gaucho_gains.Project</mainClass>
 	</configuration>
       </plugin>
-
       <plugin>
 	<groupId>com.heroku.sdk</groupId>
 	<artifactId>heroku-maven-plugin</artifactId>
@@ -163,10 +158,6 @@
           </processTypes>
 	</configuration>
       </plugin>
-
-
-
-      
     </plugins>
   </build>
   

@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.gauchogains;
+package edu.ucsb.cs56.gaucho_gains;
 
 import static spark.Spark.port;
 
@@ -45,14 +45,17 @@ public class Project {
 	/* Next Page After Login */
 	post("/community", (rq, rs) -> {
 		log.info("post /community");
+		
 		String user = rq.queryParams("email");
 		String pass = rq.queryParams("pass");
 		UserManager um = new UserManager();
 		model.put("validUser", um.checkUser(user,pass));
-		model.put("User",user);
+		model.put("user",user);
 		
 		return new ModelAndView(model, "community.mustache");
 	    }, new MustacheTemplateEngine());
+
+	post("/profile", (rq, rs) -> new ModelAndView(model, "profile.mustache"), new MustacheTemplateEngine());
     }
 
     static int getHerokuAssignedPort() {
