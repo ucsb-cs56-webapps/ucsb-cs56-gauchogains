@@ -31,16 +31,21 @@ public class Project {
         port(getHerokuAssignedPort());
 
 	/* Dummy Database */
-	Map<String, Object> model = new HashMap<String, Object>();
+	HashMap<String, Object> model = new HashMap<String, Object>();
 
 	/* Login Page */
-	get("/", (rq, rs) -> {
-		log.info("get /");
-		return new ModelAndView(model, "login.mustache");
-	    }, new MustacheTemplateEngine());
+	get("/", (rq, rs) ->  new ModelAndView(model, "login.mustache"), new MustacheTemplateEngine());
 
-	/* Sign-Up Page */
-	get("/signup", (rq, rs) -> new ModelAndView(model, "signup.mustache"), new MustacheTemplateEngine());
+	/* Profile Page */
+	post("/profile", (rq, rs) -> {
+		String user = rq.queryParams("email");
+		String pass = rq.queryParams("pass");
+		UserManager um = new UserManager();
+		model.put("validUser2", um.addUser(user,pass));
+		model.put("user", user);
+
+		return new ModelAndView(model, "profile.mustache");
+	    }, new MustacheTemplateEngine());
 
 	/* Next Page After Login */
 	post("/community", (rq, rs) -> {
@@ -55,7 +60,7 @@ public class Project {
 		return new ModelAndView(model, "community.mustache");
 	    }, new MustacheTemplateEngine());
 
-	post("/profile", (rq, rs) -> new ModelAndView(model, "profile.mustache"), new MustacheTemplateEngine());
+	get("/signup", (rq, rs) -> new ModelAndView(model, "signup.mustache"), new MustacheTemplateEngine());
     }
 
     static int getHerokuAssignedPort() {

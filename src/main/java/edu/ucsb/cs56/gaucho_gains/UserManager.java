@@ -16,5 +16,14 @@ public class UserManager {
 	else
 	    return false;
     }
+
+    public boolean addUser(String email, String pass){
+	if(users.containsKey(email)){
+	    users.put(email,pass);
+	    return true;
+	}
+	else
+	    return false;
+    }	    
 }
 
