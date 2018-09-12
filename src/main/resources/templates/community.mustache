@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  {{> head }}
+  {{> style }}
+  <body>
+  {{> usernav }}
+  <div class="bg">
+    <h1 style="color:white">Fellow Fitness Enthusiasts</h1>
+  </div>
+  {{#validUser}}
+    <p>hello {{user}}</p>
+  {{/validUser}}
+
+  {{^validUser}}
+    <p>You entered an invalid user and password</p>
+  {{/validUser}}
+    
+  {{> bootstrap-from-cdn-body }}
+  </body>
+</html>

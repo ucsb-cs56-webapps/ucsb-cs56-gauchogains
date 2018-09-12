@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  {{> head }}
+  {{> style}}
+  <body>
+    {{>nav}}
+    <div class="bg">
+      <div class="container">
+	<form class = "text-center border border-light p-5" action="/community" method="post">
+	  <h1 style="color:white">GauchoGains</h1>
+	  <i class="fa fa-envelope" style="color:white"></i>
+	  <div class = "col-auto">	
+	    <input type="email"class= "form-control mb-4" size= "30" placeholder= "Your email" name="email" required>
+	  </div>	
+	  <br>
+	  <i class="fa fa-lock" style="color:white"></i>
+	  <input type="password" class = "form-control mb-4" size="30" placeholder="Your password" name="pass" required>
+	  <br>
+	  <button class="btn btn-outline-light btn-lg">Login</button>
+	  <hr class="hr-light mb-3 mt-4">
+	</form>
+      </div> 
+    </div>
+    {{> bootstrap-from-cdn-body }}	
+  </body>
+</html>
