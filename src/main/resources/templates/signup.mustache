@@ -6,23 +6,25 @@
 	{{> nav }}
 	<div class="bg">
 	    <div class="container">
-		<form class = "text-center border border-light p-5" action="/profile" method="post">
+		<form role="form" data-toggle="validator" class = "text-center border border-light p-5" action="/profile" method="post">
 		    <h1 style="color:white">Sign Up</h1>
 		    <i class="fa fa-user" style="color:white"></i>
-		    <input type="text" class="form-control mb-4" size="30" placeholder="First Name" name="fname" required>
+		    <input type="text" class="form-control mb-4" size="30" placeholder="First Name" name="firstName" required>
 		    <br><br>
-		    <input type="text" class="form-control mb-4" size="30" placeholder="Last Name" name="lname" required>
+		    <input type="text" class="form-control mb-4" size="30" placeholder="Last Name" name="lastName" required>
 		    <br>
 		    <i class="fa fa-phone" style="color:white"></i>
-		    <input type="tel"class= "form-control mb-4" size="30" placeholder="Phone #" name="lname" required>
+		    <input type="tel"class= "form-control mb-4" data-format="(ddd) ddd-dddd" size="30" placeholder="Phone #" name="phoneno" required>
 		    <br>
 		    <i class="fa fa-envelope" style="color:white"></i>
 		    <input type="email"class= "form-control mb-4" size="30" placeholder="Email" name="email" required>
 		    <br>
 		    <i class="fa fa-lock" style="color:white"></i>
-		    <input type="password" class = "form-control mb-4" size="30" placeholder="Password" name="pass" required>
-		    <br><br>
-		    <input type="password" class = "form-control mb-4" size="30" placeholder="Confirm password" name="pass" required>
+		    <input type="password" data-minlength="6" class="form-control mb-4" id = "inputPassword" size="30" placeholder="Password" name="password" required>
+		    <br>
+		    <input type="password" class = "form-control mb-4" size="30"id = "ConfirmPassword" data-match="#inputPassword" data-match-error= "Passwords do not match."
+		    	placeholder="Confirm password" name="passwordConfirm" required>
+		    <div class = "help-block with-errors"> </div>
 		    <br>
 		    <button type= "button" class="btn btn-outline-light" onclick="location.href='/'">Cancel</button>
 		    <button class="btn btn-outline-light">Sign Up</button>
