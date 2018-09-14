@@ -33,11 +33,11 @@ MONGODB_HOST=dbhosturl
 MONGODB_PORT=dbport
 ```
 
-dbuser: database user created under the Users tab within the database on mLab.
-dbpassword: the corresponding password (not your mLab password).
-dbmname: the name following the final '/' at the end of the MongoDB URI
-dbhosturl: the url between '@' and ':'.
-dbport: the port number following  the host url.
+* dbuser: database user created under the Users tab within the database on mLab
+* dbpassword: the corresponding password (not your mLab password)
+* dbmname: the name following the final '/' at the end of the MongoDB URI
+* dbhosturl: the url between '@' and ':'
+* dbport: the port number following  the host url
 
 To deploy locally run the commands:
 ```
@@ -48,6 +48,7 @@ The local site can be found on http://localhost:4567/
 
 # Deployment to Heroku
 Go to your Heroku app and under the settings tab change the config vars with the same key/value pair as in the local .env set up above.
+
 e.g. "MONGODB_USER" in Key field and "dbuser" in Value field.
 
 Compile and deploy your web app with the following:
